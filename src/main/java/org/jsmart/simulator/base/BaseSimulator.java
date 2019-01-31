@@ -16,6 +16,13 @@ import java.net.SocketAddress;
 /**
  * @author Siddha
  */
+/*
+* @Description: simulator of Base
+* @author:
+* @date:
+* @email: zbl686868@126.com
+* @phone: 17611305537
+*/
 public class BaseSimulator implements Simulator {
     private static final Logger logger = LoggerFactory.getLogger(BaseSimulator.class);
 
@@ -43,8 +50,8 @@ public class BaseSimulator implements Simulator {
         logger.info("\n###starting...");
         try {
             Container container = this.getActualContainer();
-            Server server = new ContainerServer(container);
-            connection = new SocketConnection(server);
+            Server server = new ContainerServer(container);//internally will create a processor and a server Object
+            connection = new SocketConnection(server);//create listener
             SocketAddress address = new InetSocketAddress(port);
             socketAddress =(InetSocketAddress) connection.connect(address);
             this.isRunning = true;

@@ -12,6 +12,13 @@ import org.jsmart.simulator.deserializers.ApiSpecDeserializer;
 /**
  * Created by Siddha on 25/04/2015.
  */
+/*
+* @Description: 模拟接口json文件抽象对象
+* @author:
+* @date:
+* @email: zbl686868@126.com
+* @phone: 17611305537
+*/
 @JsonDeserialize(using = ApiSpecDeserializer.class)
 public class ApiSpec {
     private String name;

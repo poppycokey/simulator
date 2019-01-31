@@ -17,7 +17,13 @@ public class SimpleRestJsonSimulatorsMain extends JsonBasedSimulator {
     public SimpleRestJsonSimulatorsMain(int port) {
         super(port);
     }
-
+    /*
+    * @Description: simulator's main startup class
+    * @author:
+    * @date:
+    * @email: zbl686868@126.com
+    * @phone: 17611305537
+    */
     public static void main(String[] args) {
         logger.info("###new release");
         new SimpleRestJsonSimulatorsMain(PORT).start();

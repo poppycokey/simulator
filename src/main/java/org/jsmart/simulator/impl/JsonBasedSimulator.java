@@ -42,12 +42,18 @@ public class JsonBasedSimulator extends BaseSimulator implements Container {
     private Class<?> mainRunnerClass;
     private String packageName;
     List<ApiSpec> apiSpecRequestResponseList;
-    
+    /*
+    * @Description: Initialize the Simulator
+    * @author: arieszhou
+    * @date: 19-1-31 下午3:19
+    * @email: aries.zhou@supernovacompanies.biz
+    * @phone: 17611305537
+    */
     public JsonBasedSimulator(int port) {
         super(port);
         setActualContainer(this);
         mainRunnerClass = this.getClass();
-        //mainRunnerClass = this.getMainRunnerClass();
+//        mainRunnerClass = this.getMainRunnerClass(); //offical error code
         apiSpecRequestResponseList = getDeserializedApiSpecList();
         setSimulatorName(getNamesComaSeparated(apiSpecRequestResponseList));
     }
@@ -443,11 +449,11 @@ public class JsonBasedSimulator extends BaseSimulator implements Container {
         // Read the simulator files
         ClassPathFactory factory = new ClassPathFactory();
         ClassPath jvmClassPath = factory.createFromJVM();
-        
+//        get current class annotation
         ApiRepo annotation = (ApiRepo) getMainRunnerClass().getAnnotation(ApiRepo.class);
         packageName = annotation.value();
         String[] allSimulationFiles = jvmClassPath.findResources(packageName, new RegExpResourceFilter(".*", ".*\\.json$"));
-        
+
         if (null == allSimulationFiles || allSimulationFiles.length == 0) {
             throw new RuntimeException("YouTriedToSimulateNothingException: Check the (" + packageName + ") integration test repo folder(empty?). ");
         }
@@ -471,7 +477,7 @@ public class JsonBasedSimulator extends BaseSimulator implements Container {
                                 e);
             }
         }
-        
+
         return apiSpecList;
     }
     

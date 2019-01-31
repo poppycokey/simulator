@@ -4,6 +4,13 @@ package org.jsmart.simulator.domain;
 /**
  * Created by Siddha on 25/04/2015.
  */
+/*
+* @Description: 模拟接口json文件中单个api映射对象
+* @author:
+* @date:
+* @email: zbl686868@126.com
+* @phone: 17611305537
+*/
 public class Api {
     private final String name;
     private final String operation;
